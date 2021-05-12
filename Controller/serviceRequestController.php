@@ -28,4 +28,10 @@ class serviceRequestController
             window.location = '../ManageServicesRequest/viewList.php';</script>";
 		}
 	}
+
+	function viewList()
+	{
+		$request = new serviceRequestModel();
+		return $request->viewList();
+	}
 }

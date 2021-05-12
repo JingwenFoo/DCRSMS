@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../Controller/serviceRequestController.php';
-include("../index.html");
+include '../index.html';
 
 $request = new serviceRequestController();
 
@@ -12,6 +12,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 $date = date("Y/m/d", time());
 $time = date("H:i:s", time());
 $custID = 1001;
+$_SESSION['custID']=$custID;
 ?>
 <html>
 <head>
@@ -22,7 +23,7 @@ $custID = 1001;
  
 
     <h1>ADD SERVICE REQUEST</h1><br>
-    <form action="" method="POST">
+    <form action="viewList.php" method="POST">
     <table width="500" height="700" border="0">
     <tbody>
     <tr>
