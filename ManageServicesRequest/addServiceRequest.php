@@ -1,5 +1,6 @@
 <?php
 require_once '../Controller/serviceRequestController.php';
+require_once '../index.html';
 
 $request = new serviceRequestController();
 
@@ -14,109 +15,51 @@ if(isset($_POST['add'])){
 </head>
 <body>
 <div style='margin-left:25%;padding:70px;height:1000px;'>
- <div class="container">
-      <ul class="progressbar">
-          <li class="active">Add Request</li>
-          <li></li>
-          <li></li>
-  </ul>
-  <style type="text/css">
-  	 .container {
-      width: 600px;
-      margin: 100px auto; 
-  }
-  .progressbar {
-      counter-reset: step;
-  }
-  .progressbar li {
-      list-style-type: none;
-      width: 25%;
-      float: left;
-      font-size: 12px;
-      position: relative;
-      text-align: center;
-      text-transform: uppercase;
-      color: #7d7d7d;
-  }
-  .progressbar li:before {
-      width: 30px;
-      height: 30px;
-      content: counter(step);
-      counter-increment: step;
-      line-height: 30px;
-      border: 2px solid #7d7d7d;
-      display: block;
-      text-align: center;
-      margin: 0 auto 10px auto;
-      border-radius: 50%;
-      background-color: white;
-  }
-  .progressbar li:after {
-      width: 100%;
-      height: 2px;
-      content: '';
-      position: absolute;
-      background-color: #7d7d7d;
-      top: 15px;
-      left: -50%;
-      z-index: -1;
-  }
-  .progressbar li:first-child:after {
-      content: none;
-  }
-  .progressbar li.active {
-      color: green;
-  }
-  .progressbar li.active:before {
-      border-color: #55b776;
-  }
-  .progressbar li.active + li:after {
-      background-color: #55b776;
-  }
-  </style>
-</div>
+ 
 
-    <h1>Student Registration</h1>
-     <form action="" method="POST">
-    <table width="764" height="447" border="0">
+    <h1>ADD SERVICE REQUEST</h1><br>
+    <form action="" method="POST">
+    <table width="500" height="700" border="0">
     <tbody>
     <tr>
-        <td colspan="6"><strong style="color: #42A88D"><i class="fas fa-user"></i> Register Information</strong><hr></td>
+        <td><strong style="color: #007dc3;font-size: 20px">Service Request Information</strong><hr></td>
     </tr>
     <tr>
-        <td>Name:</td>
-        <td><input type="text" name="name" placeholder="Student Name" required></td>
-
-        <td>Photo:</td>
-        <td colspan="1" rowspan="2"><iframe src="ImageUpload.php" style="border: none"></iframe></td>
+        <td>Service Type:</td>
+        <td><select name="serviceType" required="">
+          <option value="">Select</option>
+          <option value="Personal computer">Personal Computer</option>
+          <option value="Smart phone">Smart phone</option>
+          <option value="Laptop">Laptop</option>
+          <option value="Printer">Printer</option>
+          <option value="Tab">Tab</option>
+        </select></td>        
     </tr>
     <tr>
-        <td>IC Number:</td>
-        <td><input type="text" name="studic" placeholder="IC Number" required></td>
+        <td style="text-align: top">Symptom:</td>
+        <td><input type="radio" id="blackOut" name="symptom" value="Black out">
+        <label for="blackOut">Black out</label><br>
+        <input type="radio" id="blueScreen" name="symptom" value="Blue Screen">
+        <label for="blueScreen">Blue screen</label><br>
+        <input type="radio" id="blankScreen" name="symptom" value="The screen is blank">
+        <label for="blankScreen">The screen is blank</label><br>
+        <input type="radio" id="computerSlow" name="symptom" value="Computer slow">
+        <label for="computerSlow">Computer slow</label><br>
+        <input type="radio" id="dropInternetConnection" name="symptom" value="Drop internet connection">
+        <label for="dropInternetConnection">Drop internet connection</label><br>
+        <input type="radio" id="other" name="symptom" value="otherSymptom">
+        <label for="other">Other: </label>
+        <input type="text" name="otherSymptom" placeholder="Other symptom" maxlength="10"></td>
     </tr>
     <tr>
-        <td>Tel No.:</td>
-        <td><input type="text" name="phone"  onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="Tel No." required></td>
-    </tr>
-    <tr>
-        <td>Gender:</td>
-        <td><select name="gender" >
-            <option value="">-Choose Gender-</option>
-             <option value="Male">Male</option>
-             <option value="Female">Female</option>
+        <td>Damage Information:</td>
+        <td><input type="text" name="damageInfo" placeholder="Damage information" width="100" height="100"required>
         </td>
     </tr>
     <tr>
-        <td>Class:</td>
-        <td><select name="class" >
-            <option value=""></option>
-            <option value="01G">01G</option>
-            <option value="02G">02G</option>
-            <option value="03G">03G</option>
-            <option value="04G">04G</option>
-            <option value="05G">05G</option>
-        </td>
-    </tr>
+      <td height="150px" colspan="4" align="center">
+        <input type="submit" name="add" value="SUBMIT"></td></tr>
 </table>
+</form>
 </body>
 </html>
