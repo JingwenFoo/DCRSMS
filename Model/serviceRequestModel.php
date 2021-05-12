@@ -36,7 +36,7 @@ class serviceRequestModel
 {
 	public $serReqID, $custID, $custName, $serviceType, $symptom, $damageInfo, $requestStatus, $requestDate, $requestTime;
 
-	function addRequest()
+	function addSerReq()
 	{
 		$sql = "insert into dcrsms(serReqID, staffID, repairStaffID, serviceType, symptom, damageInfo, requestStatus, requestDate, requestTime, amountPrice, requestDetail, requestProgress) values(:serReqID, :staffID, :repairStaffID, :serviceType, :symptom, :damageInfo, :requestStatus, :requestDate, :requestTime, :amountPrice, :requestDetail, :requestProgress)";
         $args = [':serReqID'=>$this->serReqID, ':staffID'=>$this->staffID, ':repairStaffID'=>$this->repairStaffID, ':serviceType'=>$this->serviceType, ':symptom'=>$this->symptom, ':damageInfo'=>$this->damageInfo, ':requestStatus'=>$this->requestStatus, ':requestDate'=>$this->requestDate, ':requestTime'=>$this->requestTime, ':amountPrice'=>$this->amountPrice, ':requestDetail'=>$this->requestDetail, ':requestProgress'=>$this->requestProgress];
