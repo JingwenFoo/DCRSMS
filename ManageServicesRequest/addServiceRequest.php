@@ -9,9 +9,9 @@ if(isset($_POST['add'])){
     $request->addSerReq();
 }
 date_default_timezone_set('Asia/Kuala_Lumpur');
-$date = date("d-m-Y", time());
+$date = date("d-m-Y", date());
 $time = date("H:i:s", time());
-$custID = $_SESSION['custID'];
+$custID = 1001;
 ?>
 <html>
 <head>
