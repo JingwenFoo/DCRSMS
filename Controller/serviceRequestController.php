@@ -15,7 +15,7 @@ class serviceRequestController
 		$request->requestStatus = "Pending";
 		$request->requestDate = $_POST['requestDate'];
 		$request->requestTime = $_POST['requestTime'];
-		$request->staffID = ;
+		$request->staffID = 0;
 		$request->repairStaffID = 0;
 		$request->amountPrice = 0.00;
 		$request->requestDetail = "No detail";
