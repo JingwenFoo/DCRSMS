@@ -23,7 +23,7 @@ $_SESSION['custID']=$custID;
  
 
     <h1>ADD SERVICE REQUEST</h1><br>
-    <form action="" method="POST">
+    <form action="viewList.php" method="POST">
     <table width="500" height="700" border="0">
     <tbody>
     <tr>
