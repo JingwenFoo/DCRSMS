@@ -1,71 +1,58 @@
-<?php 
+<?php
+session_start();
+require_once '../Controller/serviceRequestController.php';
+include '../index.html';
+
+
+$custID = $_POST['custID'];
+$request = new serviceRequestController();
+$data = $request->viewList();
+
 ?>
 <html>
 <head>
-	<title>Add Service Request</title>
+	<title>Service Request List</title>
 </head>
+<style type="text/css">
+  button {
+     width: 100px;
+     height: 50px;
+}
+</style>
 <body>
-<div style='margin-left:25%;padding:70px;height:1000px;'>
- <div class="container">
-      <ul class="progressbar">
-          <li class="active">Add Request</li>
-          <li></li>
-          <li></li>
-  </ul>
-  <style type="text/css">
-  	 .container {
-      width: 600px;
-      margin: 100px auto; 
-  }
-  .progressbar {
-      counter-reset: step;
-  }
-  .progressbar li {
-      list-style-type: none;
-      width: 25%;
-      float: left;
-      font-size: 12px;
-      position: relative;
-      text-align: center;
-      text-transform: uppercase;
-      color: #7d7d7d;
-  }
-  .progressbar li:before {
-      width: 30px;
-      height: 30px;
-      content: counter(step);
-      counter-increment: step;
-      line-height: 30px;
-      border: 2px solid #7d7d7d;
-      display: block;
-      text-align: center;
-      margin: 0 auto 10px auto;
-      border-radius: 50%;
-      background-color: white;
-  }
-  .progressbar li:after {
-      width: 100%;
-      height: 2px;
-      content: '';
-      position: absolute;
-      background-color: #7d7d7d;
-      top: 15px;
-      left: -50%;
-      z-index: -1;
-  }
-  .progressbar li:first-child:after {
-      content: none;
-  }
-  .progressbar li.active {
-      color: green;
-  }
-  .progressbar li.active:before {
-      border-color: #55b776;
-  }
-  .progressbar li.active + li:after {
-      background-color: #55b776;
-  }
-  </style>
-</div>
+<div style='margin-left:300px;padding:70px;height:1000px;'>
+ <h1>Service Request List</h1><hr/><br/>
+ <table id="table" class="table table-striped table-bordered table-responsive-md" width="100%">
+        <thead>
+    <tr >
+      <th style="text-align: center;">NO.</th>
+        <th style="text-align: center;">SERVICE REQUEST ID</th>
+        <th style="text-align: center;">DATE</th>
+        <th style="text-align: center;">Action</th>
+    </tr>
+</thead>
+<tbody>
+  <?php 
+  $i=0;
+  foreach ($data as $row) {
+  ?>
+  <tr>
+    <td style="text-align: center;"><?php echo $i+1?></td>
+    <td style="text-align: center;"><?= $row['serReqID']?></td>
+    <td style="text-align: center;"><?= $row['requestDate']?></td>
+    <td style="text-align: center;"><form action="" method="POST">
+      <button style="background-color:#008CBA"; name="view"><i class="fa fa-eye"></i> View </button>&emsp;&emsp;&emsp;
+       <button style="background-color:#4CAF50" name="edit"><i class="fa fa-edit"></i> Edit </button>&emsp;&emsp;&emsp;
+       <button style="background-color: #f44336;" name="delete"><i class="fa fa-trash"></i> Delete </button>
+    </form>
+    </td>
+  </tr>
+  <?php $i++; } ?>
+</tbody>
+<script type="text/javascript">
+        $(document).ready(function(){
+            $('table').DataTable();
+        });
+    </script>
 </body>
 </html>
