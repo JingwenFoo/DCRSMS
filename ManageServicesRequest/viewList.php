@@ -7,7 +7,6 @@ include '../index.html';
 $custID = $_POST['custID'];
 $request = new serviceRequestController();
 $data = $request->viewList();
-
 ?>
 <html>
 <head>
@@ -54,5 +53,8 @@ $data = $request->viewList();
             $('table').DataTable();
         });
     </script>
+=======
+<div style='margin-left:25%;padding:70px;height:1000px;'>
+ 
 </body>
 </html>
