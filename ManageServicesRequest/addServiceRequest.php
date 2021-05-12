@@ -1,13 +1,17 @@
 <?php
+session_start();
 require_once '../Controller/serviceRequestController.php';
-require_once '../index.html';
+//require_once '../index.html';
 
 $request = new serviceRequestController();
 
 if(isset($_POST['add'])){
-    $request->add();
+    $request->addSerReq();
 }
-
+date_default_timezone_set('Asia/Kuala_Lumpur');
+$date = date("d-m-Y", time());
+$time = date("H:i:s", time());
+$custID = $_SESSION['custID'];
 ?>
 <html>
 <head>
@@ -57,6 +61,9 @@ if(isset($_POST['add'])){
         </td>
     </tr>
     <tr>
+        <td><input type="hidden" name="custID" value="<?php echo $custID?>">
+            <input type="hidden" name="requestDate" value="<?php echo $date?>">
+            <input type="hidden" name="requestTime" value="<?php echo $time?>"></td>
       <td height="150px" colspan="4" align="center">
         <input type="submit" name="add" value="SUBMIT"></td></tr>
 </table>
