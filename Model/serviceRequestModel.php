@@ -50,6 +50,13 @@ class serviceRequestModel
         $count = $stmt->rowCount();
         return $count;
 	}
+
+    function viewList()
+    {
+        $sql = "Select * from serviceRequestQuotation where custID=:custID";
+        $args = [':custID'=>$this->custID];
+        return DB::run($sql,$args);
+    }
 }
 
 ?>
