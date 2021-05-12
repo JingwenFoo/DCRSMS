@@ -25,7 +25,7 @@ class serviceRequestController
 		{
 			 $message = "Add Service Request Success!";
             echo "<script type='text/javascript'>alert('$message');
-            window.location = '../DCRSMS/ManageServicesRequest/viewList.php';</script>";
+            window.location = '../ManageServicesRequest/viewList.php';</script>";
 		}
 	}
 
