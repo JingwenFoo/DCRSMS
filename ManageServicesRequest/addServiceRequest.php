@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once '../Controller/serviceRequestController.php';
-//require_once '../index.html';
+include '../index.html';
 
 $request = new serviceRequestController();
 
@@ -9,7 +9,7 @@ if(isset($_POST['add'])){
     $request->addSerReq();
 }
 date_default_timezone_set('Asia/Kuala_Lumpur');
-$date = date("d-m-Y", date());
+$date = date("Y/m/d", time());
 $time = date("H:i:s", time());
 $custID = 1001;
 ?>
@@ -40,7 +40,7 @@ $custID = 1001;
         </select></td>        
     </tr>
     <tr>
-        <td style="text-align: top">Symptom:</td>
+        <td style="vertical-align: top" rowspan="1">Symptom:</td>
         <td><input type="radio" id="blackOut" name="symptom" value="Black out">
         <label for="blackOut">Black out</label><br>
         <input type="radio" id="blueScreen" name="symptom" value="Blue Screen">
