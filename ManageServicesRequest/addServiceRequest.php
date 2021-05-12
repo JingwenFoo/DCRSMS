@@ -12,6 +12,7 @@ date_default_timezone_set('Asia/Kuala_Lumpur');
 $date = date("Y/m/d", time());
 $time = date("H:i:s", time());
 $custID = 1001;
+$_SESSION['custID']=$custID;
 ?>
 <html>
 <head>
