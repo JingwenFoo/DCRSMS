@@ -12,7 +12,7 @@ class serviceRequestController
 		$request->serviceType = $_POST['serviceType'];
 		$request->symptom = $_POST['symptom'];
 		$request->damageInfo = $_POST['damageInfo'];
-		$request->requestStatus = $_POST['requestStatus'];
+		$request->requestStatus = 'Pending';
 		$request->requestDate = $_POST['requestDate'];
 		$request->requestTime = $_POST['requestTime'];
 
@@ -20,7 +20,7 @@ class serviceRequestController
 		{
 			 $message = "Add Service Request Success!";
             echo "<script type='text/javascript'>alert('$message');
-            window.location = '../../ManageServicesRequest/addServiceRequest.php';</script>";
+            window.location = '../../ManageServicesRequest/viewList.php';</script>";
 		}
 	}
 }
