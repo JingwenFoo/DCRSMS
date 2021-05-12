@@ -15,7 +15,7 @@ class serviceRequestController
 		$request->requestStatus = "Pending";
 		$request->requestDate = $_POST['requestDate'];
 		$request->requestTime = $_POST['requestTime'];
-		$request->staffID = ;
+		$request->staffID = 0;
 		$request->repairStaffID = 0;
 		$request->amountPrice = 0.00;
 		$request->requestDetail = "No detail";
@@ -25,7 +25,7 @@ class serviceRequestController
 		{
 			 $message = "Add Service Request Success!";
             echo "<script type='text/javascript'>alert('$message');
-            window.location = '../DCRSMS/ManageServicesRequest/viewList.php';</script>";
+            window.location = '../ManageServicesRequest/viewList.php';</script>";
 		}
 	}
 }
