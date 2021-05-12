@@ -4,6 +4,12 @@ class DB
 
   public static function connect($value='')
   {
+    // define a constant variable to store our database settings
+    define('DB_TYPE', 'mysql');
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'dcrsms');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
     // create a new PDO connection
     $pdo = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -34,12 +40,12 @@ class DB
 
 class serviceRequestModel
 {
-	public $serReqID, $custID, $custName, $serviceType, $symptom, $damageInfo, $requestStatus, $requestDate, $requestTime;
+	public $custID, $staffID, $repairStaffID, $serviceType, $symptom, $damageInfo, $requestStatus, $requestDate, $requestTime, $amountPrice, $requestDetail, $requestProgress;
 
-	function addRequest()
+	function addSerReq()
 	{
-		$sql = "insert into dcrsms(serReqID, staffID, repairStaffID, serviceType, symptom, damageInfo, requestStatus, requestDate, requestTime, amountPrice, requestDetail, requestProgress) values(:serReqID, :staffID, :repairStaffID, :serviceType, :symptom, :damageInfo, :requestStatus, :requestDate, :requestTime, :amountPrice, :requestDetail, :requestProgress)";
-        $args = [':serReqID'=>$this->serReqID, ':staffID'=>$this->staffID, ':repairStaffID'=>$this->repairStaffID, ':serviceType'=>$this->serviceType, ':symptom'=>$this->symptom, ':damageInfo'=>$this->damageInfo, ':requestStatus'=>$this->requestStatus, ':requestDate'=>$this->requestDate, ':requestTime'=>$this->requestTime, ':amountPrice'=>$this->amountPrice, ':requestDetail'=>$this->requestDetail, ':requestProgress'=>$this->requestProgress];
+		$sql = "insert into serviceRequestQuotation (custID, staffID, repairStaffID, serviceType, symptom, damageInfo, requestStatus, requestDate, requestTime, amountPrice, requestDetail, requestProgress) values(:custID, :staffID, :repairStaffID, :serviceType, :symptom, :damageInfo, :requestStatus, :requestDate, :requestTime, :amountPrice, :requestDetail, :requestProgress)";
+        $args = [':custID'=>$this->custID, ':staffID'=>$this->staffID, ':repairStaffID'=>$this->repairStaffID, ':serviceType'=>$this->serviceType, ':symptom'=>$this->symptom, ':damageInfo'=>$this->damageInfo, ':requestStatus'=>$this->requestStatus, ':requestDate'=>$this->requestDate, ':requestTime'=>$this->requestTime, ':amountPrice'=>$this->amountPrice, ':requestDetail'=>$this->requestDetail, ':requestProgress'=>$this->requestProgress];
         $stmt = DB::run($sql, $args);
         $count = $stmt->rowCount();
         return $count;

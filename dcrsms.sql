@@ -67,10 +67,10 @@ CREATE TABLE `payment` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pick up delivery`
+-- Table structure for table `pickUpDelivery`
 --
 
-CREATE TABLE `pick up delivery` (
+CREATE TABLE `pickUpDelivery` (
   `pickUpID` int(11) NOT NULL,
   `riderID` int(11) NOT NULL,
   `serReqID` int(11) NOT NULL,
@@ -84,10 +84,10 @@ CREATE TABLE `pick up delivery` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `repairing staff`
+-- Table structure for table `repairingStaff`
 --
 
-CREATE TABLE `repairing staff` (
+CREATE TABLE `repairingStaff` (
   `repairStaffID` int(11) NOT NULL,
   `accountID` int(11) NOT NULL,
   `repairStaffName` varchar(100) NOT NULL,
@@ -117,10 +117,10 @@ CREATE TABLE `rider` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `service request quotation`
+-- Table structure for table `serviceRequestQuotation`
 --
 
-CREATE TABLE `service request quotation` (
+CREATE TABLE `serviceRequestQuotation` (
   `serReqID` int(11) NOT NULL,
   `custID` int(11) NOT NULL,
   `staffID` int(11) NOT NULL,
@@ -174,15 +174,15 @@ ALTER TABLE `payment`
   ADD PRIMARY KEY (`paymentID`);
 
 --
--- Indexes for table `pick up delivery`
+-- Indexes for table `pickUpDelivery`
 --
-ALTER TABLE `pick up delivery`
+ALTER TABLE `pickUpDelivery`
   ADD PRIMARY KEY (`pickUpID`);
 
 --
--- Indexes for table `repairing staff`
+-- Indexes for table `repairingStaff`
 --
-ALTER TABLE `repairing staff`
+ALTER TABLE `repairingStaff`
   ADD PRIMARY KEY (`repairStaffID`);
 
 --
@@ -192,9 +192,9 @@ ALTER TABLE `rider`
   ADD PRIMARY KEY (`riderID`);
 
 --
--- Indexes for table `service request quotation`
+-- Indexes for table `serviceRequestQuotation`
 --
-ALTER TABLE `service request quotation`
+ALTER TABLE `serviceRequestQuotation`
   ADD PRIMARY KEY (`serReqID`);
 
 --
@@ -226,15 +226,15 @@ ALTER TABLE `payment`
   MODIFY `paymentID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `pick up delivery`
+-- AUTO_INCREMENT for table `pickUp Delivery`
 --
-ALTER TABLE `pick up delivery`
+ALTER TABLE `pickUpDelivery`
   MODIFY `pickUpID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `repairing staff`
+-- AUTO_INCREMENT for table `repairingStaff`
 --
-ALTER TABLE `repairing staff`
+ALTER TABLE `repairingStaff`
   MODIFY `repairStaffID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -244,7 +244,7 @@ ALTER TABLE `rider`
   MODIFY `riderID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `service request quotation`
+-- AUTO_INCREMENT for table `serviceRequestQuotation`
 --
 ALTER TABLE `service request quotation`
   MODIFY `serReqID` int(11) NOT NULL AUTO_INCREMENT;
