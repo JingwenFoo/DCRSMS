@@ -5,25 +5,36 @@ include '../index.html';
 
 $request = new serviceRequestController();
 
+//add service request 
 if(isset($_POST['add'])){
     $request->addSerReq();
 }
 date_default_timezone_set('Asia/Kuala_Lumpur');
 $date = date("Y/m/d", time());
 $time = date("H:i:s", time());
+<<<<<<< Updated upstream
 $custID = 1001;
 $_SESSION['custID']=$custID;
+=======
+$custID = 1002;
+$_SESSION["cid"] = $custID;
+>>>>>>> Stashed changes
 ?>
 <html>
 <head>
-	<title>Add Service Request</title>
+    <title>Add Service Request</title>
 </head>
 <body>
 <div style='margin-left:25%;padding:70px;height:1000px;'>
  
 
     <h1>ADD SERVICE REQUEST</h1><br>
+<<<<<<< Updated upstream
     <form action="viewList.php" method="POST">
+=======
+    <form action="" method="POST">
+        <!--insert service request detail -->
+>>>>>>> Stashed changes
     <table width="500" height="700" border="0">
     <tbody>
     <tr>
@@ -52,9 +63,9 @@ $_SESSION['custID']=$custID;
         <label for="computerSlow">Computer slow</label><br>
         <input type="radio" id="dropInternetConnection" name="symptom" value="Drop internet connection">
         <label for="dropInternetConnection">Drop internet connection</label><br>
-        <input type="radio" id="other" name="symptom" value="otherSymptom">
-        <label for="other">Other: </label>
-        <input type="text" name="otherSymptom" placeholder="Other symptom" maxlength="10"></td>
+        <input type="radio" id="other" name="symptom" value="Other Symptom">
+        <label for="other">Other</label>
+        </td>
     </tr>
     <tr>
         <td>Damage Information:</td>
@@ -64,10 +75,11 @@ $_SESSION['custID']=$custID;
     <tr>
         <td><input type="hidden" name="custID" value="<?php echo $custID?>">
             <input type="hidden" name="requestDate" value="<?php echo $date?>">
-            <input type="hidden" name="requestTime" value="<?php echo $time?>"></td>
+            <input type="hidden" name="requestTime" value="<?php echo $time?>">
       <td height="150px" colspan="4" align="center">
         <input type="submit" name="add" value="SUBMIT"></td></tr>
 </table>
 </form>
+
 </body>
 </html>
